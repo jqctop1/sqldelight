@@ -48,6 +48,7 @@ class MultiplatformConventions : Plugin<Project> {
       macosArm64()
       iosSimulatorArm64()
       iosX64()
+      ohosArm64()
 
       // tier 2
       linuxArm64()

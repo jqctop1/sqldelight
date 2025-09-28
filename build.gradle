@@ -5,7 +5,7 @@ buildscript {
         strictly '4.4.1'
       }
     }
-    classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.24.0")
+    classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.23.2-KBA-001")
   }
 }
 
@@ -43,6 +43,9 @@ allprojects {
     maven { url "https://cache-redirector.jetbrains.com/intellij-dependencies" }
     // Repo for the backported Android IntelliJ Plugin by Jetbrains used in Ultimate
     maven { url "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-ide-plugin-dependencies/" }
+    maven {
+      url("https://mirrors.tencent.com/nexus/repository/maven-public/")
+    }
   }
 
   tasks.withType(Test).configureEach {

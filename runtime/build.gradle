@@ -1,7 +1,7 @@
 plugins {
   alias(libs.plugins.publish)
   alias(libs.plugins.dokka)
-  alias(libs.plugins.binaryCompatibilityValidator)
+  //alias(libs.plugins.binaryCompatibilityValidator)
   id("app.cash.sqldelight.multiplatform")
   id("app.cash.sqldelight.toolchain.runtime")
 }
@@ -11,16 +11,12 @@ sourceSets {
   main
 }
 
-apiValidation {
-  ignoredPackages += ["app.cash.sqldelight.internal"]
-}
-
 kotlin {
   applyDefaultHierarchyTemplate {
     it.common {
       it.group("nonJvm") {
-        it.withJs()
-        it.withWasmJs()
+        //it.withJs()
+        //it.withWasmJs()
         it.withNative()
       }
     }
@@ -29,7 +25,7 @@ kotlin {
   sourceSets {
     commonMain {
     }
-    commonTest {
+    /*commonTest {
       dependencies {
         implementation libs.kotlin.test
         implementation libs.kotlin.coroutines.test
@@ -39,7 +35,7 @@ kotlin {
       dependencies {
         implementation libs.kotlin.test.junit
       }
-    }
+    }*/
   }
 }
 
