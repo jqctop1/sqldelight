@@ -39,6 +39,7 @@ allprojects {
   repositories {
     mavenCentral()
     google()
+    mavenLocal()
     maven { url 'https://www.jetbrains.com/intellij-repository/releases' }
     maven { url "https://cache-redirector.jetbrains.com/intellij-dependencies" }
     // Repo for the backported Android IntelliJ Plugin by Jetbrains used in Ultimate
@@ -61,9 +62,9 @@ allprojects {
   }
 
   // https://youtrack.jetbrains.com/issue/KT-46466
-  tasks.withType(org.gradle.api.publish.maven.tasks.AbstractPublishToMaven).configureEach {
+  /*tasks.withType(org.gradle.api.publish.maven.tasks.AbstractPublishToMaven).configureEach {
     dependsOn(tasks.withType(Sign))
-  }
+  }*/
 
   configurations.configureEach {
     exclude group: 'com.jetbrains.rd'

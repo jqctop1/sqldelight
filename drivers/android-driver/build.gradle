@@ -45,4 +45,18 @@ dependencies {
   testImplementation libs.robolectric*/
 }
 
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
+apply from: "$rootDir/gradle/gradle-mvn-push.gradle"
+afterEvaluate {
+  publishing {
+    publications {
+      release(MavenPublication) {
+        from components.release
+        groupId = rootProject.gradle.properties.get("GROUP")
+        artifactId = "android-driver"
+        version = rootProject.gradle.properties.get("VERSION_NAME")
+      }
+    }
+  }
+}
+
+

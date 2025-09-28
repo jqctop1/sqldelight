@@ -5,7 +5,8 @@ kotlinCoroutines = "1.8.0-KBA-002"
 idea = "231.9392.1" # Hedgehog | 2023.1.1 Patch 2 (see https://plugins.jetbrains.com/docs/intellij/android-studio-releases-list.html)
 androidxSqlite = "2.5.1"
 schemaCrawler = "16.19.2"
-sqliter = "1.3.3"
+sqliter = "1.3.3-KBA"
+stately = "2.1.0-KBA"
 sqljs = "1.8.0"
 paging-mpp = "3.1.1-0.3.1"
 paging3 = "3.1.1"
@@ -79,7 +80,7 @@ schemaCrawler-sqlite = { module = "us.fatehi:schemacrawler-sqlite", version.ref 
 
 objectDiff = { module = "de.danielbechler:java-object-diff", version = "0.95" }
 sqliter = { module = "co.touchlab:sqliter-driver", version.ref = "sqliter" }
-stately-concurrency = { module = "co.touchlab:stately-concurrency", version = "2.1.0" }
+stately-concurrency = { module = "co.touchlab:stately-concurrency", version.ref = "stately" }
 
 testhelp = { module = "co.touchlab:testhelp", version = "0.6.12" }
 burst = { module = "com.squareup.burst:burst-junit4", version = "1.2.0" }

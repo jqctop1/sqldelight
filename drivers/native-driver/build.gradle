@@ -40,19 +40,18 @@ kotlin {
     it.common { target ->
       target.group("native") {
         it.group("nativeLinuxLike") {
-          it.group("linux") {
-            it.withOhosArm64()
-          }
-          it.group("apple") { }
+          //it.group("linux") {}
+          //it.group("apple") { }
           // https://github.com/touchlab/SQLiter/issues/117
-          // it.group("androidNative")
+          //it.group("androidNative")
+          it.withOhosArm64()
         }
       }
     }
   }
 
   sourceSets {
-    ohosArm64 {
+    commonMain {
       dependencies {
         api projects.runtime
         api libs.stately.concurrency

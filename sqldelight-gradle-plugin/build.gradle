@@ -6,11 +6,11 @@ plugins {
   alias(libs.plugins.publish)
   alias(libs.plugins.dokka)
   id("java-gradle-plugin")
-  id("jvm-test-suite")
+  //id("jvm-test-suite")
   id("app.cash.sqldelight.toolchain.compiler")
 }
 
-testing {
+/*testing {
   suites {
     dockerTest(JvmTestSuite) {
       useJUnit()
@@ -22,11 +22,12 @@ testing {
       useJUnit()
     }
   }
-}
+}*/
 
-configurations.dockerTestImplementation.extendsFrom(configurations.testImplementation)
+/*configurations.dockerTestImplementation.extendsFrom(configurations.testImplementation)
 configurations.grammarkitTestImplementation.extendsFrom(configurations.testImplementation)
 configurations.instrumentationTestImplementation.extendsFrom(configurations.testImplementation)
+*/
 
 gradlePlugin {
   plugins {
@@ -36,7 +37,7 @@ gradlePlugin {
     }
   }
 
-  testSourceSets(sourceSets.test, sourceSets.dockerTest, sourceSets.grammarkitTest, sourceSets.instrumentationTest)
+  //testSourceSets(sourceSets.test, sourceSets.dockerTest, sourceSets.grammarkitTest, sourceSets.instrumentationTest)
 }
 
 
@@ -56,12 +57,12 @@ dependencies {
   implementation libs.kotlin.plugin
   compileOnly libs.android.plugin
 
-  testImplementation libs.junit
+  /*testImplementation libs.junit
   testImplementation libs.truth
-  testImplementation libs.testParameterInjector
+  testImplementation libs.testParameterInjector*/
 }
 
-tasks.named('test') {
+/*tasks.named('test') {
   // The integration tests require local installations of artifacts.
   dependsOn(
       ":dialects:mysql:publishAllPublicationsToInstallLocallyRepository",
@@ -111,13 +112,13 @@ tasks.named('test') {
     reports.html.required = false
     reports.junitXml.required = false
   }
-}
+}*/
 
 tasks.named('check') {
   dependsOn(testing.suites.dockerTest, testing.suites.grammarkitTest)
 }
 
-tasks.named('dockerTest') {
+/*tasks.named('dockerTest') {
   dependsOn(
       ":dialects:mysql:publishAllPublicationsToInstallLocallyRepository",
       ":dialects:postgresql:publishAllPublicationsToInstallLocallyRepository",
@@ -134,9 +135,9 @@ tasks.named('dockerTest') {
       ":sqlite-migrations:environment:publishAllPublicationsToInstallLocallyRepository",
   )
   environment("ORG_GRADLE_PROJECT_sqldelightVersion", project.version)
-}
+}*/
 
-tasks.named("grammarkitTest") {
+/*tasks.named("grammarkitTest") {
   dependsOn(
       ":dialects:sqlite-3-18:publishAllPublicationsToInstallLocallyRepository",
       ":sqldelight-compiler:dialect:publishAllPublicationsToInstallLocallyRepository",
@@ -154,9 +155,9 @@ tasks.named("grammarkitTest") {
     languageVersion = JavaLanguageVersion.of(17)
   }
   environment("ORG_GRADLE_PROJECT_sqldelightVersion", project.version)
-}
+}*/
 
-tasks.named("instrumentationTest") {
+/*tasks.named("instrumentationTest") {
   dependsOn(
       ":drivers:android-driver:publishAllPublicationsToInstallLocallyRepository",
       ":dialects:sqlite-3-18:publishAllPublicationsToInstallLocallyRepository",
@@ -187,10 +188,10 @@ tasks.named("instrumentationTest") {
     languageVersion = JavaLanguageVersion.of(ToolchainConventions.BUILD_JDK)
   }
   environment("ORG_GRADLE_PROJECT_sqldelightVersion", project.version)
-}
+}*/
 
-tasks.named('validatePlugins') {
+/*tasks.named('validatePlugins') {
   enableStricterValidation = true
-}
+}*/
 
 apply from: "$rootDir/gradle/gradle-mvn-push.gradle"

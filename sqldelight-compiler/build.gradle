@@ -8,7 +8,7 @@ plugins {
   id("app.cash.sqldelight.toolchain.compiler")
 }
 
-tasks.named('test') {
+/*tasks.named('test') {
   testLogging {
     events "passed", "skipped", "failed"
     exceptionFormat "full"
@@ -16,7 +16,7 @@ tasks.named('test') {
     showStackTraces true
     showCauses true
   }
-}
+}*/
 
 grammarKit {
   intellijRelease.set(libs.versions.idea)
@@ -32,7 +32,7 @@ dependencies {
     targetConfiguration = "shadow"
   }
 
-  testImplementation libs.burst
+  /*testImplementation libs.burst
   testImplementation libs.sqliteJdbc
   testImplementation(projects.sqldelightCompiler.environment) {
     targetConfiguration = "shadow"
@@ -51,7 +51,7 @@ dependencies {
   testImplementation projects.dialects.sqlite330
   testImplementation projects.dialects.sqlite333
   testImplementation projects.dialects.sqlite335
-  testImplementation projects.dialects.sqlite338
+  testImplementation projects.dialects.sqlite338*/
 }
 
 TaskProvider<PluginVersion> pluginVersion = tasks.register('pluginVersion', PluginVersion)

@@ -20,7 +20,7 @@ class MultiplatformConventions : Plugin<Project> {
     (project.kotlinExtension as KotlinMultiplatformExtension).apply {
       jvm()
 
-      listOf(js(), wasmJs()).forEach {
+      /*listOf(js(), wasmJs()).forEach {
         it.browser {
           testTask {
             it.useKarma {
@@ -31,51 +31,51 @@ class MultiplatformConventions : Plugin<Project> {
         it.compilerOptions {
           moduleKind.set(JsModuleKind.MODULE_UMD)
         }
-      }
+      }*/
 
-      applyDefaultHierarchyTemplate {
+      /*applyDefaultHierarchyTemplate {
         common {
           group("web") {
             withJs()
             withWasmJs()
           }
         }
-      }
+      }*/
 
       // tier 1
-      linuxX64()
-      macosX64()
-      macosArm64()
-      iosSimulatorArm64()
-      iosX64()
+      //linuxX64()
+      //macosX64()
+      //macosArm64()
+      //iosSimulatorArm64()
+      //iosX64()
       ohosArm64()
 
       // tier 2
-      linuxArm64()
-      watchosSimulatorArm64()
-      watchosX64()
-      watchosArm32()
-      watchosArm64()
-      tvosSimulatorArm64()
-      tvosX64()
-      tvosArm64()
-      iosArm64()
+      //linuxArm64()
+      //watchosSimulatorArm64()
+      //watchosX64()
+      //watchosArm32()
+      //watchosArm64()
+      //tvosSimulatorArm64()
+      //tvosX64()
+      //tvosArm64()
+      //iosArm64()
 
       // tier 3
-      androidNativeArm32()
-      androidNativeArm64()
-      androidNativeX86()
-      androidNativeX64()
-      mingwX64()
-      watchosDeviceArm64()
+      //androidNativeArm32()
+      //androidNativeArm64()
+      //androidNativeX86()
+      //androidNativeX64()
+      //mingwX64()
+      //watchosDeviceArm64()
 
       // linking fails for the linux test build if not built on a linux host
       // ensure the tests and linking for them is only done on linux hosts
-      project.tasks.named("linuxX64Test") { it.enabled = HostManager.hostIsLinux }
+      /*project.tasks.named("linuxX64Test") { it.enabled = HostManager.hostIsLinux }
       project.tasks.named("linkDebugTestLinuxX64") { it.enabled = HostManager.hostIsLinux }
 
       project.tasks.named("mingwX64Test") { it.enabled = HostManager.hostIsMingw }
-      project.tasks.named("linkDebugTestMingwX64") { it.enabled = HostManager.hostIsMingw }
+      project.tasks.named("linkDebugTestMingwX64") { it.enabled = HostManager.hostIsMingw }*/
     }
   }
 }
